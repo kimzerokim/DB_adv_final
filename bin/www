@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var global = require('./global.js');
+var info = require('debug')('info:www');
+var app = require('../src/app');
+
+var client = require(SOURCE_ROOT + '/modules/mysql_dump/dump');
+
+app.set('port', global.port);
+
+var server = app.listen(app.get('port'), function() {
+  info('Express server listening on port ' + server.address().port);
+});
